@@ -120,4 +120,9 @@ export class AppComponent {
   nav(link: string) {
     window.open(link, '_blank');
   }
+
+  navTo(link: string) {
+    const elementOffsetTop = document.getElementById(link)?.offsetTop;
+    window.scrollTo({ top: elementOffsetTop, behavior: 'smooth' });
+  }
 }

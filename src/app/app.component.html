@@ -13,24 +13,28 @@
         ></app-icon>
       </li>
       <li class="social-icon__item">
-        <app-icon 
-        (click)="nav('https://www.instagram.com/devguto_/')"
-        svg="assets/public/svg/social_media/instagram.svg"
+        <app-icon
+          (click)="nav('https://www.instagram.com/devguto_/')"
+          svg="assets/public/svg/social_media/instagram.svg"
         ></app-icon>
       </li>
       <li class="social-icon__item">
-        <app-icon 
-        (click)="nav('mailto:devguto.social@gmail.com?subject=Contato&body=Ol%C3%A1,+gostaria+de+entrar+em+contato+para+pedir+um+or%C3%A7amento!')" svg="assets/public/svg/social_media/gmail.svg"
-        svg="assets/public/svg/social_media/gmail.svg"
+        <app-icon
+          (click)="
+            nav(
+              'mailto:devguto.social@gmail.com?subject=Contato&body=Ol%C3%A1,+gostaria+de+entrar+em+contato+para+pedir+um+or%C3%A7amento!'
+            )
+          "
+          svg="assets/public/svg/social_media/gmail.svg"
+          svg="assets/public/svg/social_media/gmail.svg"
         ></app-icon>
       </li>
     </ul>
     <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+      <li class="menu__item" (click)="navTo('home')">Inicio</li>
+      <li class="menu__item" (click)="navTo('about')">Sobre mim</li>
+      <li class="menu__item" (click)="navTo('work')">Trabalhos</li>
+      <li class="menu__item" (click)="navTo('contact')">Contato</li>
     </ul>
     <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
   </footer>

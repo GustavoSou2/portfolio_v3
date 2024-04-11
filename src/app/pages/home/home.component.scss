@@ -1,0 +1,158 @@
+@import "color.global";
+
+#home {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: changePositionState 1000ms cubic-bezier(0.74, 0.75, 0, 0.93) 0.3s 1
+    forwards;
+  animation-delay: 1700ms;
+  background: #091b2c;
+  transition: 600ms ease-in-out;
+  scroll-snap-align: start;
+
+  .name_animation {
+    width: max-content;
+    overflow: hidden;
+
+    span {
+      font-size: 15dvw;
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    span.name_animation__space {
+      width: 50px;
+      display: inline-block;
+    }
+
+    span {
+      position: relative;
+      animation: smothBottomToTop 400ms cubic-bezier(0.74, 0.75, 0, 0.93) 0.3s 1
+        forwards;
+      transition: 300ms;
+    }
+
+    //
+    @for $i from 1 through 15 {
+      span:nth-child(#{$i}) {
+        opacity: 0;
+        animation-delay: #{$i}00ms;
+      }
+    }
+
+    .square__animation {
+      width: 100dvw;
+      height: 100dvh;
+      position: absolute;
+      bottom: -75%;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: smothTheSquare 2000ms cubic-bezier(0.8, 0.24, 0, 0.91) 1700ms
+        forwards;
+      transition: animation 300ms ease-in-out;
+      background-size: 100% 100%;
+      z-index: 2;
+      background: linear-gradient(180deg, #091b2c, #0b1215);
+
+      .name_animation__square_presentation {
+        width: 65dvw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        font-size: 4dvw;
+        font-family: "Lexend Exa", sans-serif;
+
+        div:nth-child(3) {
+          font-family: "Julius Sans One", sans-serif;
+          letter-spacing: -0.4rem;
+          font-size: 8dvw;
+        }
+
+        .scroll_icon__animation {
+          position: absolute;
+          bottom: 25px;
+          width: 35px;
+          height: 55px;
+          border-radius: 24px;
+          background-color: transparent;
+          border: 1px solid #fff;
+          display: flex;
+          justify-content: center;
+          left: 50%;
+          transform: translateX(-50%);
+
+          &::before {
+            content: "";
+            width: 2px;
+            height: 10px;
+            background: #fff;
+            position: relative;
+            transform: translateY(10px);
+            animation: scrollAnimation 2s infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes smothBottomToTop {
+  0% {
+    top: 20dvh;
+    opacity: 1;
+    text-shadow: none;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    text-shadow: none;
+  }
+}
+
+@keyframes smothTheSquare {
+  0% {
+    bottom: -75%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(10px);
+    height: 10px;
+  }
+  50% {
+    transform: translateY(17px);
+    height: 14px;
+  }
+  100% {
+    transform: translateY(10px);
+    height: 10px;
+  }
+}
+
+@keyframes changePositionState {
+  from {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  to {
+    position: relative;
+  }
+}

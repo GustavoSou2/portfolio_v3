@@ -1,0 +1,48 @@
+@import "color.global";
+
+.icon__container {
+  width: max-content;
+  border-radius: 8px;
+  transition: 300ms ease-in;
+  cursor: pointer;
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+
+  i {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    background-color: $secondary;
+  }
+
+  &.outline {
+    border: 1px solid $basic;
+  }
+
+  &.icon__label_reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.dark {
+    color: $basic;
+    fill: $basic;
+  }
+
+  .icon__label {
+    font-size: 0.8rem;
+  }
+
+  .is__svg {
+    img {
+      fill: white;
+      color: white;
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+
+
+}

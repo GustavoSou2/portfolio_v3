@@ -1,0 +1,69 @@
+<section id="app" class="column">
+  <header class="app__header">
+    <div class="app__nav_logo">
+      <a href="" class="app__nav_logo_link">
+        <div class="app__nav_logo_d">D</div>
+        <div class="app__nav_logo_g">G</div>
+      </a>
+    </div>
+    <div
+      class="app__menu_button"
+      [ngClass]="{ spanded__menu: menuState }"
+      (click)="onMenuClick()"
+    >
+      <div class="button__line"></div>
+      <div class="button__line"></div>
+    </div>
+    <nav class="app__nav" [ngClass]="{ spanded__menu: menuState }">
+      <ul class="app__nav_menu">
+        <li
+          #home
+          class="app__nav_menu_item"
+          (click)="navTo('home')"
+          [ngClass]="{ active: validateItemMenuActivated(0) }"
+        >
+          Inicio
+        </li>
+        <li
+          class="app__nav_menu_item"
+          (click)="navTo('about')"
+          [ngClass]="{ active: validateItemMenuActivated(1) }"
+        >
+          Sobre mim
+        </li>
+        <li
+          class="app__nav_menu_item"
+          (click)="navTo('work')"
+          [ngClass]="{ active: validateItemMenuActivated(2) }"
+        >
+          Trabalhos
+        </li>
+        <li
+          class="app__nav_menu_item"
+          (click)="navTo('contact')"
+          [ngClass]="{ active: validateItemMenuActivated(3) }"
+        >
+          Contato
+        </li>
+      </ul>
+      <div class="app__nav_social_media center__y_x">
+        <app-icon
+          (click)="nav('https://wa.me/5519987693611')"
+          svg="assets/public/svg/social_media/whatsapp.svg"
+        ></app-icon>
+        <app-icon
+          (click)="nav('https://www.instagram.com/devguto_/')"
+          svg="assets/public/svg/social_media/instagram.svg"
+        ></app-icon>
+        <app-icon
+          (click)="
+            nav(
+              'mailto:devguto.social@gmail.com?subject=Contato&body=Ol%C3%A1,+gostaria+de+entrar+em+contato+para+pedir+um+or%C3%A7amento!'
+            )
+          "
+          svg="assets/public/svg/social_media/gmail.svg"
+        ></app-icon>
+      </div>
+    </nav>
+  </header>
+</section>

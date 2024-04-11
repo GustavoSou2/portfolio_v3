@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/global";
+
+body {
+  background-color: $primary;
+  font-family: "Inter";
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  :is(a, span, p, h1, h2, h3, h4, h5, h6, img) {
+    color: $basic;
+    fill: $basic;
+  }
+
+  animation: popScrollbar 2000ms cubic-bezier(0.74, 0.75, 0, 0.93) 0.3s 1
+    forwards;
+  animation-delay: 2500ms;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@keyframes popScrollbar {
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: scroll;
+  }
+}

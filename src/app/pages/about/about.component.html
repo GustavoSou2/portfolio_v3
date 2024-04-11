@@ -1,0 +1,78 @@
+<section id="about" #about class="snap__scroll">
+  <div class="about__presentation about__scroll">
+    <main class="about__content">
+      <div class="about__text_one__container">
+        <div
+          class="about__square_img"
+          id="about__image"
+          [style.background-image]="'url(assets/public/images/i_home.jpg)'"
+        ></div>
+        <p class="about__text_one" id="about__text_one">
+          <span>Desenvolvedor Web </span><span>& Designer</span>
+        </p>
+      </div>
+      <div class="about__text_two__container">
+        <p class="about__text_two" id="about__text_two">
+          Sou Gustavo Souza, um desenvolvedor web e designer independente. Moro
+          no interior de São Paulo, mas procurando desafios pelo mundo. Tenho +4
+          anos de experiência no desenvolvimento de soluções web e desgin.
+        </p>
+      </div>
+    </main>
+  </div>
+  <section class="about__skills about__scroll">
+    <div class="about__skill_tool" id="about__skill">
+      <div class="tool__container" *ngFor="let tool of toolsIcons">
+        <img
+          [src]="'assets/public/svg/tools/' + tool.descriptionIcon + '.svg'"
+          class=""
+        />
+        <span>{{ tool.description }}</span>
+
+        <div class="xp-year">+{{ tool.experience }}</div>
+      </div>
+    </div>
+    <div class="about__skill_description">
+      <div class="about__softskill" id="about__softskill_one">
+        <div>
+          <img [src]="'assets/public/svg/web.svg'" class="" />
+          <h1>Web Design</h1>
+        </div>
+        <p>
+          Transforme sua visão em realidade digital! Nosso serviço de criação de
+          sites oferece designs deslumbrantes, funcionalidades intuitivas e uma
+          presença online única para o seu negócio. Da concepção à
+          implementação, estamos aqui para construir a plataforma digital que
+          destaca sua marca. Junte-se a nós e deixe sua presença online brilhar!
+        </p>
+      </div>
+      <div class="about__softskill" id="about__softskill_two">
+        <div>
+          <img [src]="'assets/public/svg/mobile.svg'" class="" />
+          <h1>Criação de Aplicativos</h1>
+        </div>
+        <p>
+          Potencialize seu negócio com nosso serviço de criação de aplicativos!
+          Desenvolvemos soluções inovadoras e intuitivas que levam sua marca
+          diretamente para as mãos dos usuários. Do design de interface ao
+          desempenho excepcional, estamos comprometidos em criar experiências
+          móveis envolventes e impactantes. Impulsione sua presença digital com
+          aplicativos que surpreendem e encantam!
+        </p>
+      </div>
+      <div class="about__softskill" id="about__softskill_three">
+        <div>
+          <img [src]="'assets/public/svg/www.svg'" class="" />
+          <h1>Hospedagem</h1>
+        </div>
+        <p>
+          Desfrute da excelência em hospedagem web conosco! Oferecemos uma
+          solução confiável e eficiente para tornar o seu site acessível a
+          todos. Garantimos desempenho rápido, segurança robusta e suporte
+          excepcional 24/7. Hospede seu sucesso conosco e proporcione uma
+          experiência online incrível para seus visitantes
+        </p>
+      </div>
+    </div>
+  </section>
+</section>

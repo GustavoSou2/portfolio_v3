@@ -1,0 +1,85 @@
+<section id="work" #work>
+  <div class="works__container" id="works__container">
+    <div
+      class="work__card"
+      *ngFor="let work of works"
+      #eWork
+      (click)="workDetail = work"
+    >
+      <div class="work__card_banner">
+        @if(work.typeProject == 1) {
+        <img
+          [src]="work?.image?.banner"
+          class="work__background_banner banner_image"
+          alt=""
+        />
+        } @if (work.typeProject == 2) {
+        <span class="work__background_banner banner_api">API</span>
+        } @if(work.typeProject == 3) {
+        <img
+          [src]="'assets/public/svg/bot.svg'"
+          class="work__background_banner banner_bot"
+        />
+        }
+      </div>
+      <div class="work__card_description">
+        <h1 class="work__card_description_title">{{ work?.description }}</h1>
+        <p class="work__card_description_description">
+          {{ work?.descriptionProject }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-container
+  *ngTemplateOutlet="
+    showWorkDetail ? workDetailModal : null;
+    context: { work: workDetail$ | async }
+  "
+></ng-container>
+<ng-template #workDetailModal let-work="work">
+  <div class="work__detail_modal">
+    <div class="work_detail__back">
+      <button class="work_detail__back_button">
+        <img [src]="'assets/public/svg/arrow.svg'" (click)="closeModal()" />
+      </button>
+    </div>
+    <div class="work_detail_modal__container">
+      <div class="work_detail_descriptions">
+        <span class="work_detail__title">{{ work.description }}</span>
+        <p class="work_detail__text">{{ work.descriptionProject }}</p>
+        <img [src]="work?.image?.page" alt="" />
+      </div>
+      <div class="work_detail_modal__external">
+        <div>
+          <h2>Ferramentas usadas</h2>
+          <div class="work_detail__tools">
+            <div class="tool__container" *ngFor="let tool of work.stacks">
+              <img
+                [src]="
+                  'assets/public/svg/tools/' + tool.descriptionIcon + '.svg'
+                "
+                class=""
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Links</h2>
+          <div class="work_detail__link">
+            @if(!!work.github) {
+            <a [href]="work.github" target="_blank" class="work_detail__link">
+              <img [src]="'assets/public/svg/github.svg'" class="" />
+            </a>
+            } @if(!!work.deploy) {
+            <a [href]="work.deploy" target="_blank" class="work_detail__link">
+              <img [src]="'assets/public/svg/disk.svg'" class="" />
+            </a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

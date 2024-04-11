@@ -1,0 +1,198 @@
+@import "color.global";
+
+#about {
+  width: max-content;
+  height: max-content;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-snap-align: start;
+
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  .about__presentation {
+    min-width: 100dvw;
+    height: calc(100dvh - 70px);
+    scroll-snap-align: start;
+
+    .about__content {
+      width: 65dvw;
+      height: 100%;
+      display: flex;
+      margin: auto;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10dvw 0 5dvh;
+      position: relative;
+      overflow: hidden;
+
+      .about__text_one__container {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .about__square_img {
+          width: 15dvw;
+          height: 15dvw;
+          min-width: 140px;
+          min-height: 140px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          border-radius: 6px;
+          background-position: center -45px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          filter: grayscale(1);
+          transition: 300ms ease-in-out;
+
+          &:hover {
+            filter: grayscale(0);
+          }
+        }
+
+        .about__text_one {
+          display: flex;
+          flex-direction: column;
+          font-size: 7dvw;
+          text-transform: uppercase;
+          font-family: "League Gothic", sans-serif;
+        }
+      }
+
+      .about__text_two__container {
+        display: flex;
+        justify-content: flex-end;
+
+        .about__text_two {
+          width: clamp(300px, 60%, 65%);
+          font-size: 1.25dvw;
+          font-family: "Inter", sans-serif;
+
+          @media only screen and (max-width: 900px) {
+            width: 80%;
+            font-size: 1.25rem;
+          }
+
+          @media only screen and (min-width: 900px) {
+            width: clamp(300px, 60%, 65%);
+            font-size: 1.25dvw;
+          }
+        }
+      }
+    }
+  }
+
+  .about__skills {
+    min-width: 100dvw;
+    background-image: linear-gradient(0deg, #05090a, #00000000);
+    height: max-content;
+    display: flex;
+    padding: 5rem 0;
+    justify-content: center;
+    flex-direction: column;
+
+    .about__skill_tool {
+      @media only screen and (max-width: 900px) {
+        width: 90dvw;
+      }
+
+      @media only screen and (min-width: 900px) {
+        width: 65dvw;
+      }
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .tool__container {
+        width: 230px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        padding: 1.55rem 0.25rem;
+        gap: 15px;
+        border-radius: 8px;
+        background-color: #0b1215;
+        position: relative;
+        flex: 0 1 240px;
+        border: 1px solid #10191c;
+        overflow: hidden;
+
+        .xp-year {
+          content: attr(data-xp-year);
+          font-size: 2rem;
+          font-weight: bold;
+          color: #10191c;
+          position: absolute;
+          right: 0;
+          bottom: -10px;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+
+        &::before {
+          content: "";
+        }
+      }
+    }
+    .about__skill_description {
+      width: 65dvw;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin: auto;
+      padding: 5rem 0 0;
+
+      .about__softskill {
+        padding: 2rem;
+        background-color: #0b1215;
+        border: 1px solid #10191c;
+        border-radius: 4px;
+
+        img {
+          width: 40px;
+          height: auto;
+        }
+
+        p {
+          margin-top: 30px;
+          color: #efefef90;
+        }
+      }
+    }
+  }
+
+  .about__scroll {
+    scroll-snap-align: start;
+  }
+}
+
+@keyframes smoothToTop {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

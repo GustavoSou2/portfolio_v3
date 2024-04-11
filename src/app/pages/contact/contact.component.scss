@@ -1,0 +1,165 @@
+@import "color.global";
+
+#contact {
+  position: relative;
+  height: 90dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #05090a;
+  align-items: center;
+
+  .contact__background_blur {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    filter: blur(4px);
+  }
+
+  .contact__form {
+    z-index: 2;
+    width: 500px;
+    margin: 0 auto;
+    background: #0b1215;
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    border: 1px solid #10191c;
+    border-radius: 6px;
+    gap: 15px;
+
+    .contact__form_field {
+      width: 100%;
+      padding: 20px;
+      background: #121c21;
+      border-radius: 8px;
+      border: 1px solid #efefef10;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      :is(.fa-regular, .fa-solid) {
+        color: $basic;
+      }
+
+      input {
+        width: 100%;
+        background: none;
+        border: none;
+        color: $basic;
+        font-size: 0.9rem;
+        font-family: "Inter", sans-serif;
+
+        :is(&:focus, &:active, &:focus-visible, &:focus-within) {
+          color: white;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        background: none;
+        border: none;
+        color: $basic;
+        resize: none;
+        font-size: 0.9rem;
+        font-family: "Inter", sans-serif;
+
+        :is(&:focus, &:active, &:focus-visible, &:focus-within) {
+          color: white;
+        }
+      }
+
+      &:nth-child(4) {
+        display: flex;
+        align-items: start;
+      }
+
+      &.invalid {
+        border-color: red;
+      }
+    }
+
+    .contact__button {
+      background: $blue_sky;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 20px 0;
+      transition: 300ms ease-in-out;
+
+      &:disabled {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+
+.toastr {
+  width: 320px;
+  height: auto;
+  border-radius: 6px;
+  padding: 20px;
+  border: 1px solid rgba(239, 239, 239, 0.062745098);
+  background-color: #121c21;
+  position: fixed;
+  top: 75px;
+  right: 30px;
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+
+  &.success {
+    .toastr_timeline__status {
+      background: rgb(85, 211, 27);
+    }
+
+    .toastr_icon {
+      color: rgb(85, 211, 27);
+    }
+  }
+
+  &.error {
+    .toastr_timeline__status {
+      background: rgb(211, 55, 55);
+    }
+
+    .toastr_icon {
+      color: rgb(211, 55, 55);
+    }
+  }
+
+  .toastr_timeline__status {
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: toastrStatusProgress 2s ease-in-out;
+  }
+
+
+  .toastr_description {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .toastr_text {
+      color: $basic;
+      font-size: 0.9rem;
+
+      &:nth-child(2) {
+        color: #ffffff90;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@keyframes toastrStatusProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -1,0 +1,75 @@
+<section id="contact" #contact class="snap__scroll">
+  <img
+    [src]="'assets/public/images/contact_bg.png'"
+    class="contact__background_blur"
+  />
+  <form [formGroup]="contactForm" class="contact__form">
+    <h1>Fale comigo</h1>
+    <label for="" class="contact__form_field">
+      <i class="fa-regular fa-user"></i>
+      <input
+        type="text"
+        name="myNumber"
+        formControlName="name"
+        placeholder="Nome"
+        required
+        autocomplete="off"
+      />
+    </label>
+
+    <label for="" class="contact__form_field">
+      <i class="fa-regular fa-envelope"></i>
+      <input
+        type="email"
+        name="myNumber"
+        formControlName="email"
+        placeholder="Email"
+        required
+        autocomplete="off"
+      />
+    </label>
+
+    <label for="" class="contact__form_field">
+      <i class="fa-solid fa-pen"></i>
+      <textarea
+        rows="4"
+        placeholder="Mensagem"
+        formControlName="message"
+        autocomplete="off"
+      ></textarea>
+    </label>
+    <button
+      [disabled]="!contactForm.valid"
+      class="contact__button"
+      (click)="onSubmit()"
+    >
+      Enviar
+    </button>
+  </form>
+</section>
+
+@if(showToastrError) {
+<div class="toastr error">
+  <div class="toastr_timeline__status"></div>
+  <div class="toastr_icon">
+    <i class="fa-solid fa-times"></i>
+  </div>
+  <div class="toastr_description">
+    <div class="toastr_text">
+      Falha ao enviar a mensagem. Tente novamento mais tarde!
+    </div>
+    <div class="toastr_text">Hoje {{ date | date : "HH:mm" }}</div>
+  </div>
+</div>
+} @if(showToastrSuccess) {
+<div class="toastr success">
+  <div class="toastr_timeline__status"></div>
+  <div class="toastr_icon">
+    <i class="fa-solid fa-check"></i>
+  </div>
+  <div class="toastr_description">
+    <div class="toastr_text">Mensagem enviada com sucesso!</div>
+    <div class="toastr_text">Hoje {{ date | date : "HH:mm" }}</div>
+  </div>
+</div>
+}

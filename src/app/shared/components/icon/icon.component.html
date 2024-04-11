@@ -1,0 +1,21 @@
+<div
+  class="icon__container center__y_x"
+  [ngClass]="[
+    type,
+    labelPosition == 'left' ? 'icon__label_reverse' : '',
+    theme,
+    !!svg ? 'is__svg' : ''
+  ]"
+  [ngStyle]="{ 'border-radius': rounded }"
+>
+  @if (!!svg && svg.length != 0) {
+  <img [src]="svg" alt="" />
+  } @else {
+  <i [ngClass]="[icon, iconStyle, 'center__y_x']"></i>
+  }
+
+  <!--  Verify if has label and create label tag  -->
+  @if(!!label && label.length != 0) {
+  <span class="icon__label">{{ label }}</span>
+  }
+</div>

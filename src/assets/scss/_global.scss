@@ -1,0 +1,106 @@
+// .row{
+//     display: flex;
+//     flex-wrap: wrap;
+//     padding: 0px 100px 100px 100px;
+// }
+// .column{
+//     flex: 25%;
+//     max-width: 25%;
+// }
+
+@import "./color.global";
+
+@import "./devices.global";
+
+@import "./fonts.global";
+
+@import "./mixins.global";
+
+// Reset page style
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0 none;
+  box-shadow: 0 0 0 0;
+  list-style: none;
+  text-decoration: none;
+
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar-track {
+  transition: 300ms;
+  background-color: #f4f4f420;
+}
+*::-webkit-scrollbar {
+  transition: 300ms;
+  width: 6px;
+  background: #f4f4f420;
+}
+*::-webkit-scrollbar-thumb {
+  transition: 300ms;
+  background: #dad7d780;
+}
+
+/* Works on Chrome, Edge, and Safari */
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.center__y_x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center__y {
+  display: flex;
+  justify-content: center;
+}
+
+.center__x {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  padding: 0.75rem 3.25rem;
+  background-color: transparent;
+  color: $basic;
+  transition: 300ms ease-in;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $basic;
+    color: $primary;
+  }
+}
+
+.button_outline {
+  border: 1px solid $basic;
+}
+
+.top__animation {
+  animation: smoothToTop 2000ms cubic-bezier(0.74, 0.75, 0, 0.93) 0.3s 1
+    forwards;
+}
+
+
+@keyframes smoothToTop {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
